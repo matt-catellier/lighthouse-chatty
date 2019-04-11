@@ -52,6 +52,10 @@ class App extends Component {
   setUser = e => { this.setState({user: e.target.value}) }
   setMessage = e => { this.setState({message: e.taget.value }) }
 
+  componentDidMount() {
+    var exampleSocket = new WebSocket("ws://localhost:3001")
+  }
+
   render() {
     return (
       <div>

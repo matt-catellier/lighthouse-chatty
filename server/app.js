@@ -1,12 +1,8 @@
-const express = require('express')
-const app = express()
+var initializeExpress = require('./express-server')
+var initializeSocket = require('./web-socker-server')
 
-app.use(express.json());
+let app;
+app = initializeExpress(app);
+app = initializeSocket(app);
 
-app.post('/', function(request, response){
-  console.log(request.body);      // your JSON
-  response.send(request.body);    // echo the result back
-});
-
-app.listen(3001);
-console.log('express app running on port 3001')
+console.log('app configured');
